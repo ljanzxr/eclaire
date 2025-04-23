@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ÉCLAIRÉ Survey</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fffaf7;
+      margin: 0;
+      padding: 0;
+      color: #1f1f1f;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      width: 100px;
+      animation: spin 10s linear infinite;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 10px 0;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .question {
+      margin-bottom: 30px;
+    }
+
+    .question h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .faces {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .face {
+      width: 60px;
+      height: 60px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .face:hover {
+      transform: scale(1.2);
+    }
+
+    .btn-download {
+      background-color: #000;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 30px;
+    }
+
+    .btn-download:hover {
+      background-color: #222;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="logo.png" alt="Logo" class="logo" />
+    <h1>ÉCLAIRÉ Survey</h1>
+  </header>
+
+  <section id="survey">
+    <!-- Example Question -->
+    <div class="question">
+      <h2>1. ما هو شعورك تجاه تصمبم الفساتين الجديدة؟</h2>
+      <div class="faces">
+        <img src="happiness.png" alt="Happy" class="face">
+        <img src="natural.png" alt="Neutral" class="face">
+        <img src="sad.png" alt="Sad" class="face">
+      </div>
+    </div>
+
+    <!-- Repeat for more questions -->
+
+    <button class="btn-download" onclick="downloadPDF()">Download as PDF</button>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    function downloadPDF() {
+      const element = document.getElementById('survey');
+      html2pdf().from(element).save('ECLAIRE_Survey.pdf');
+    }
+  </script>
+</body>
+
+</html>
